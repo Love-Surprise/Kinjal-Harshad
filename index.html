@@ -8,9 +8,9 @@
 	</head>
 
 	<body style="margin:0px">
-		<audio id="bgMusic" muted loop autoplay>
-			<source src="music/music.mp3" type="audio/mpeg">
-			Your browser does not support the audio.
+		<audio id="bgMusic" muted loop preload="auto">
+ 		 	<source src="music/music.mp3" type="audio/mpeg">
+  			<source src="music/music.ogg" type="audio/ogg">
 		</audio>
 		<canvas></canvas>
 		<div id="imgTxt">
@@ -21,7 +21,7 @@
 		<div id="heartTxt">
     <span id="clickMe">Click!</span>
     <div id="heart">
-        <button id="button" onclick="document.getElementById('heartTxt').style.display='none'; play();"></button>
+        <button id="button" onclick="document.getElementById('heartTxt').style.display='none'; playMusic();"></button>
     </div>
 </div>
 		<div id="content">
@@ -55,11 +55,15 @@
 			 "I Love You 😘", "I Love You 😘", "I Love You 😘", "I Love You 😘", "I Love You 😘"];
 			 var len = imageArray.length;
 			 var t = 0;
-			 var audio = document.getElementById('bgMusic');
-			 function play() {
-  			 audio.muted = false;
-  			 audio.play().catch(e => console.log('Play blocked'));
-			 }
+			 function playMusic() {
+  			 var audio = document.getElementById('bgMusic');
+  				audio.play().then(() => {
+    			audio.muted = false;
+    			console.log('Music playing!');  
+  			}).catch(e => {
+    			console.error('Audio error:', e); 
+  			});
+		}
 			
 		</script>
 		
