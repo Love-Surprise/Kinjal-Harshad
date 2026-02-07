@@ -8,8 +8,7 @@
 	</head>
 
 	<body style="margin:0px">
-		<audio autoplay loop>
-			<audio id="bgMusic" loop muted>
+		<audio id="bgMusic" muted loop autoplay>
 			<source src="music/music.mp3" type="audio/mpeg">
 			Your browser does not support the audio.
 		</audio>
@@ -55,7 +54,13 @@
 			 "I Love You 😘", "I Love You 😘", "I Love You 😘", "I Love You 😘", 
 			 "I Love You 😘", "I Love You 😘", "I Love You 😘", "I Love You 😘", "I Love You 😘"];
 			 var len = imageArray.length;
-			var t = 0;
+			 var t = 0;
+			 var audio = document.getElementById('bgMusic');
+			 function play() {
+  			 audio.muted = false;
+  			 audio.play().catch(e => console.log('Play blocked'));
+			 }
+			
 		</script>
 		
 		<script type="text/javascript" src="./js/stars.js"></script>
